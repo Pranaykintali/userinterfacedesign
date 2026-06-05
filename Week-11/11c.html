@@ -1,0 +1,32 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Password Strength</title>
+  </head>
+  <body>
+    <h3>Password</h3>
+    <input type="password" id="password" onkeyup="checkPassword()" />
+    <p id="strength"></p>
+
+    <script>
+      function checkPassword() {
+        let pass = document.getElementById("password").value;
+        let msg = "";
+
+        if (pass.length < 6) {
+          msg = "Weak (too short)";
+        } else if (
+          pass.match(/[A-Z]/) && // uppercase
+          pass.match(/[0-9]/) && // number
+          pass.match(/[@$!%*?&]/) // special char
+        ) {
+          msg = "Strong Password";
+        } else {
+          msg = "Medium (add uppercase, number, special char)";
+        }
+
+        document.getElementById("strength").innerText = msg;
+      }
+    </script>
+  </body>
+</html>

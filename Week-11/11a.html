@@ -1,0 +1,19 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Username Validation</title>
+  </head>
+  <body>
+    <h3>Username</h3>
+    <input type="text" id="username" onkeyup="checkUsername()" />
+    <p id="msg"></p>
+
+    <script>
+      function checkUsername() {
+        let name = document.getElementById("username").value;
+        document.getElementById("msg").innerText =
+          name.length < 5 ? "Minimum 5 characters required" : "";
+      }
+    </script>
+  </body>
+</html>
